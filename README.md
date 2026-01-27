@@ -67,10 +67,13 @@ Navigate to `http://localhost:8000`
 ### Static Site (TLD)
 - Deployed via Cloudflare Pages
 - Automatic deployment from `main` branch
-- See [www/README.md](www/README.md) for details
+- See [Deployment Guide](docs/DEPLOYMENT.md) for step-by-step instructions
+- See [www/README.md](www/README.md) for local development
 
 ### Applications
-Each application has its own deployment strategy based on its tech stack. Refer to individual app READMEs.
+Each application has its own deployment strategy based on its tech stack. Refer to:
+- [Deployment Guide](docs/DEPLOYMENT.md) for platform-specific instructions
+- Individual app READMEs for application-specific details
 
 ## Cloudflare Configuration
 

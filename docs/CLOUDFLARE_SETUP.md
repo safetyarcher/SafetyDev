@@ -33,8 +33,9 @@ Each application can have its own subdomain:
 3. Click "Create a project"
 4. Connect to GitHub repository: `safetyarcher/SafetyDev`
 5. Configure build settings:
+   - **Framework preset**: None
    - **Build command**: (leave empty for static)
-   - **Build output directory**: `www`
+   - **Build output directory**: `/` (or leave empty)
    - **Root directory**: `www`
 
 ### Custom Domain

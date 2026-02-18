@@ -416,3 +416,40 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Node.js and NPM
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables (additional patterns)
+.env.local
+.env.development
+.env.test
+.env.production
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+.directory
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# IDE (additional)
+.idea/
+*.swp
+*.swo
+
+# Build outputs (general)
+dist/
+build/
+*.min.js
+*.min.css

@@ -27,7 +27,7 @@ This guide covers deployment strategies for the SafetyDev repository application
    - **Framework preset**: None
    - **Root directory**: `www`
    - **Build command**: (leave empty)
-   - **Build output directory**: `/` (or leave empty)
+   - **Build output directory**: `.` or `/` (leave empty for static sites)
 
 3. **Deploy**
    - Click "Save and Deploy"

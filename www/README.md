@@ -17,7 +17,9 @@ This static site should be deployed to serve the TLD (safetyarcher.com) through 
 1. Connect this repository to Cloudflare Pages
 2. Set **Root directory** to `www`
 3. No build command needed (static HTML/CSS/JS)
-4. Set **Build output directory** to `/` (or leave empty)
+4. Set **Build output directory** to `.` or `/` (leave empty)
+
+Note: The `_headers` and `_redirects` files provide security headers and routing configuration for Cloudflare Pages.
 
 ## Local Development
 

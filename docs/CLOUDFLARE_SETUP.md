@@ -35,7 +35,7 @@ Each application can have its own subdomain:
 5. Configure build settings:
    - **Framework preset**: None
    - **Build command**: (leave empty for static)
-   - **Build output directory**: `.` or `/` (leave empty)
+   - **Build output directory**: (leave empty - files served directly from root directory)
    - **Root directory**: `www`
 
 **Important**: The static site includes `_headers` and `_redirects` files for security and routing configuration.

@@ -27,7 +27,7 @@ This guide covers deployment strategies for the SafetyDev repository application
    - **Framework preset**: None
    - **Root directory**: `www`
    - **Build command**: (leave empty)
-   - **Build output directory**: `.` or `/` (leave empty for static sites)
+   - **Build output directory**: (leave empty - files are served directly from root directory)
 
 3. **Deploy**
    - Click "Save and Deploy"
@@ -185,7 +185,7 @@ Consider using:
 **Solution**: Ensure the following settings in Cloudflare Pages:
 - **Root directory**: `www` (this tells Cloudflare where your source files are)
 - **Build command**: (leave empty for static HTML sites)
-- **Build output directory**: `.` or `/` or leave empty (for static sites, files are served directly from root directory)
+- **Build output directory**: (leave empty - files are served directly from the root directory)
 
 The `www` directory contains:
 - `index.html` - Required for the site to load

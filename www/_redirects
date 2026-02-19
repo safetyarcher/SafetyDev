@@ -1,4 +1,6 @@
 # Cloudflare Pages redirects and rewrites
 
-# Single Page Application fallback (if needed in future)
+# Note: This is a static multi-page site. 
+# If you convert to a Single Page Application (SPA) in the future,
+# uncomment the line below to serve index.html for all paths:
 # /* /index.html 200

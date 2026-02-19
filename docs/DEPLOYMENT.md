@@ -179,6 +179,26 @@ Consider using:
 3. Check browser console for errors
 4. Clear Cloudflare cache
 
+### Build Configuration Issues
+**Common Issue**: "Output directory not found" or deployment fails
+
+**Solution**: Ensure the following settings in Cloudflare Pages:
+- **Root directory**: `www` (this tells Cloudflare where your source files are)
+- **Build command**: (leave empty for static HTML sites)
+- **Build output directory**: `.` or `/` or leave empty (for static sites, files are served directly from root directory)
+
+The `www` directory contains:
+- `index.html` - Required for the site to load
+- `styles.css` - Stylesheet
+- `script.js` - JavaScript
+- `_headers` - Security headers configuration
+- `_redirects` - Routing rules (if needed)
+
+**Note**: If you see errors about missing files, verify that:
+1. The repository is properly connected to Cloudflare Pages
+2. The `www` directory is set as the root directory in build configuration
+3. The main branch is selected for production deployments
+
 ### SSL Certificate Issues
 1. Ensure SSL/TLS mode is "Full (strict)"
 2. Check certificate validity

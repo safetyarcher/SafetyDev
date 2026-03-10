@@ -119,35 +119,23 @@ Use environment variable management from your hosting provider:
 
 ---
 
-## CI/CD Pipeline (Optional)
+## CI/CD Pipeline
 
-### GitHub Actions Example
+Two GitHub Actions workflows are configured in `.github/workflows/`:
 
-Create `.github/workflows/deploy.yml`:
+### Deploy Workflow (`.github/workflows/deploy.yml`)
 
-```yaml
-name: Deploy to Cloudflare Pages
+Automatically deploys to Cloudflare Workers on every push to `main` that changes files in `www/` or `wrangler.jsonc`. Uses the [cloudflare/wrangler-action](https://github.com/cloudflare/wrangler-action) and reads deployment settings from `wrangler.jsonc`.
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'www/**'
+**Required GitHub Secrets:**
+- `CLOUDFLARE_API_TOKEN` — Cloudflare API token with Workers deployment permissions
+- `CLOUDFLARE_ACCOUNT_ID` — Your Cloudflare account ID
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: safetyarcher
-          directory: www
-```
+### CI Workflow (`.github/workflows/ci.yml`)
+
+Runs on pull requests and non-main branch pushes that change `www/` or `wrangler.jsonc`. Validates:
+- HTML structure using `html-validate`
+- Presence of all required security headers in `www/_headers`
 
 ---
 

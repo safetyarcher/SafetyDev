@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    paths:
+      - 'www/**'
+      - 'wrangler.jsonc'
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'www/**'
+      - 'wrangler.jsonc'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install html-validate
+        run: npm install --global html-validate
+
+      - name: Validate HTML
+        run: html-validate www/index.html
+
+      - name: Check security headers
+        run: |
+          echo "Checking _headers file for required security headers..."
+          grep -q "X-Frame-Options" www/_headers || (echo "ERROR: Missing X-Frame-Options header" && exit 1)
+          grep -q "X-Content-Type-Options" www/_headers || (echo "ERROR: Missing X-Content-Type-Options header" && exit 1)
+          grep -q "Content-Security-Policy" www/_headers || (echo "ERROR: Missing Content-Security-Policy header" && exit 1)
+          grep -q "Strict-Transport-Security" www/_headers || (echo "ERROR: Missing Strict-Transport-Security header" && exit 1)
+          grep -q "Referrer-Policy" www/_headers || (echo "ERROR: Missing Referrer-Policy header" && exit 1)
+          echo "All required security headers are present."
